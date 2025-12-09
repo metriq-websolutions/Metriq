@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { HashLink } from 'react-router-hash-link';
 import '../styles/Footer.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -115,14 +116,14 @@ function Footer() {
               <button onClick={scrollToTop} className="footer-link footer-button">
                 Back to Top ↑
               </button>
-              <a href="#">Our Packages</a>
+              <HashLink to="/packages" className='footer-link'>Our Packages</HashLink>
             </div>
           </div>
-            <div className="footer-section">
+          <div className="footer-section">
             <h3 className="footer-section-title">Our Guidelines</h3>
             <div className="footer-links">
-              <a href="mailto:hello@yourmail.com" className="footer-link">
-               Terms and Conditions
+              <a href="#" className="footer-link">
+                Terms and Conditions
               </a>
             </div>
           </div>
@@ -132,7 +133,7 @@ function Footer() {
           <p className="footer-copyright">
             © {new Date().getFullYear()} All Rights Reserved
           </p>
-          <p className="footer-credit">Designed & Developed with Precision</p>
+          <p className="footer-credit">Designed & Developed by Metriq</p>
         </div>
       </div>
 

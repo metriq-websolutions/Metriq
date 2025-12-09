@@ -12,35 +12,37 @@ function Works() {
 
   const projects = [
     {
-      title: 'AI Customer Support Platform',
-      category: 'AI / SaaS',
+      title: 'Photo Studio Portfolio Website',
+      category: 'Portfolio',
       description:
-        'Enterprise-grade customer support automation using GPT-4 with real-time sentiment analysis and intelligent ticket routing.',
-      stack: ['React', 'Node.js', 'OpenAI', 'MongoDB', 'WebSocket'],
+        'A vibrant single-page portfolio site for a photo studio, built with smooth animations, a clean services showcase, product highlights, and an integrated contact form. Designed to feel modern, fast, and visually energetic.',
+      stack: ['React', 'Node.js', 'GSAP'],
       year: '2024',
     },
     {
-      title: 'Real-Time Collaboration Tool',
-      category: 'WebRTC / Real-Time',
+      title: 'Portfolio Website for Clean Air Solutions Company',
+      category: 'Full Stack / Portfolio',
       description:
-        'Multi-user collaborative whiteboard with video conferencing, screen sharing, and synchronized document editing.',
-      stack: ['React', 'WebRTC', 'Socket.io', 'Redis', 'PostgreSQL'],
+        'A clean blue-and-white corporate website for a clean-air solutions company, featuring a structured hero section, detailed services, product showcases, an about segment, and a custom FastAPI-powered contact form. Built for clarity, speed, and a polished brand presence.',
+      stack: ['React', 'Node.js', 'Python', 'FastAPI', 'GSAP'],
       year: '2024',
     },
     {
-      title: 'Healthcare SaaS Platform',
-      category: 'SaaS / Enterprise',
+      title: 'Jarvis - AI-Powered Personal Assistant',
+      category: 'AI-powered Full-Stack Application',
       description:
-        'HIPAA-compliant telemedicine platform with appointment scheduling, secure video consultations, and patient management.',
-      stack: ['React', 'Node.js', 'Stripe', 'Twilio', 'AWS'],
-      year: '2023',
-    },
-    {
-      title: 'E-Commerce Analytics Dashboard',
-      category: 'Analytics / BI',
-      description:
-        'Real-time analytics dashboard for e-commerce platforms with predictive sales forecasting and inventory optimization.',
-      stack: ['React', 'Python', 'TensorFlow', 'MongoDB', 'D3.js'],
+        'A personal AI assistant with full-stack architecture, featuring custom memory, authentication, reminders, automated notifications, and a lightweight conversational model. Built with React, React Native, Node.js, Express, and MongoDB, with optional voice interaction and Three.js visuals.',
+      stack: [
+        'React',
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'Python',
+        'Machine Learning',
+        'Gemini API',
+        'Three.js',
+        'Git'
+      ],
       year: '2023',
     },
   ];
@@ -161,10 +163,7 @@ function Works() {
                   ))}
                 </div>
 
-                <div className="project-link">
-                  <span>View Case Study</span>
-                  <span className="link-arrow">→</span>
-                </div>
+
               </div>
             </div>
           ))}

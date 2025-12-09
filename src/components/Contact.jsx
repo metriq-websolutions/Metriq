@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/Contact.css';
+import axios from 'axios';
+import Toast from './Toast';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,6 +12,7 @@ function Contact() {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const formRef = useRef(null);
+  const [toast, setToast] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -101,7 +105,7 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
 
@@ -112,7 +116,17 @@ function Contact() {
       repeat: 1,
       ease: 'power2.inOut',
     });
-
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/contact",{
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      });
+      setToast({ message: 'Message sent successfully!', type: 'success' });
+    } catch (error) {
+      console.error("Error:", error);
+      setToast({ message: 'Failed to send message.', type: 'error' });
+    }
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -202,6 +216,13 @@ function Contact() {
             </button>
           </form>
         </div>
+        {toast && (
+        <Toast 
+          message={toast.message} 
+          type={toast.type} 
+          onClose={() => setToast(null)} 
+        />
+      )}
       </div>
     </section>
   );

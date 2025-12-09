@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 2rem;
   overflow: hidden;
   background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 100%);
 }
@@ -107,7 +108,7 @@
 
 .scroll-indicator {
   position: absolute;
-  bottom: 3rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
