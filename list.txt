@@ -1,0 +1,9 @@
+1. Website / Portfolio - {
+    A.) Content
+    B.) Packages
+    C.) Name
+    D.) Domain
+}
+2. Guidelines
+3. Ownership Agreement
+4. Client Agreement Template
