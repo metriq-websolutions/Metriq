@@ -37,7 +37,6 @@ conf = ConnectionConfig(
     MAIL_PORT=465,             # Changed from 587
     MAIL_SERVER="smtp.gmail.com",
     MAIL_STARTTLS=False,       # Turn OFF StartTLS
-    MAIL_SSL_TLS=True,
     MAIL_SSL_TLS=False,
     USE_CREDENTIALS=True,
     VALIDATE_CERTS=True
