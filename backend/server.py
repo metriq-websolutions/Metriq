@@ -67,3 +67,7 @@ async def send_contact_email(
     background_tasks.add_task(fm.send_message, message)
     
     return {"message": "Email has been sent"}
+
+@app.get("/")
+def read_root():
+    return {"message": f"Welcome to the Aptitude Test API. questions loaded."}
