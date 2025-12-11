@@ -45,7 +45,7 @@ def send_contact_email(request: Request, form: ContactForm):
         "html": f"""
         <p><strong>Name:</strong> {form.name}</p>
         <p><strong>Email:</strong> {form.email}</p>
-        <p><strong>Terms and Privacy Policy:</strong>{form.TermsandPrivacyPolicyAgreed}</p>
+        <p><strong>Terms and Privacy Policy:</strong> {form.TermsandPrivacyPolicyAgreed}</p>
         <p><strong>Message:</strong></p>
         <blockquote style="border-left: 4px solid #ccc; padding-left: 10px;">
             {form.message}
