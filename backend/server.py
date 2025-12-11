@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 
-# 1. Load env vars BEFORE importing/using other configs
 load_dotenv()
 
 from fastapi import FastAPI, Request, HTTPException
@@ -12,10 +11,8 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import resend
 
-# 2. Configure Resend
 resend.api_key = os.getenv("RESEND_API_KEY")
 
-# 3. Setup Limiter
 limiter = Limiter(key_func=get_remote_address)
 
 app = FastAPI()
@@ -34,21 +31,21 @@ class ContactForm(BaseModel):
     name: str
     email: EmailStr
     message: str
+    TermsandPrivacyPolicyAgreed: str
 
-# 4. Use 'def' (not 'async def') for synchronous libraries like Resend
-# This allows FastAPI to run it in a separate thread so it doesn't block the server.
 @app.post("/contact")
 @limiter.limit("3/minute") 
 def send_contact_email(request: Request, form: ContactForm):
     
     params: resend.Emails.SendParams = {
-        "from": "onboarding@resend.dev", # Use this until you verify a domain in Resend dashboard
-        "to": ["metriqwebsolutions@gmail.com"], # 👈 Must be a list
+        "from": "onboarding@resend.dev", 
+        "to": ["metriqwebsolutions@gmail.com"],
         "subject": f"Portfolio Contact: {form.name}",
         "reply_to": form.email,
         "html": f"""
         <p><strong>Name:</strong> {form.name}</p>
         <p><strong>Email:</strong> {form.email}</p>
+        <p><strong>Terms and Privacy Policy:</strong>{form.TermsandPrivacyPolicyAgreed}</p>
         <p><strong>Message:</strong></p>
         <blockquote style="border-left: 4px solid #ccc; padding-left: 10px;">
             {form.message}
