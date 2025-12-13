@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/Contact.css';
 import axios from 'axios';
 import Toast from './Toast';
+import { HashLink } from 'react-router-hash-link';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +14,7 @@ function Contact() {
   const titleRef = useRef(null);
   const formRef = useRef(null);
   const [toast, setToast] = useState(null);
+  const [agreed, setAgreed] = useState();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -107,7 +109,6 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
 
     gsap.to(formRef.current, {
       scale: 0.98,
@@ -116,11 +117,15 @@ function Contact() {
       repeat: 1,
       ease: 'power2.inOut',
     });
+    if(!agreed){
+      setToast({ message: 'Please agree to the Terms and Privacy Policy!', type: 'failure' });
+    }
     try {
-      const response = await axios.post("http://127.0.0.1:8000/contact",{
+      const response = await axios.post("https://metriq-oq49.onrender.com/contact", {
         name: formData.name,
         email: formData.email,
-        message: formData.message
+        message: formData.message,
+        TermsandPrivacyPolicyAgreed: agreed?`Agreed`:'Not Agreed'
       });
       setToast({ message: 'Message sent successfully!', type: 'success' });
     } catch (error) {
@@ -147,7 +152,7 @@ function Contact() {
             <div className="contact-details">
               <div className="contact-item">
                 <span className="contact-label">Email</span>
-                <a href="metriqwebsolutions@gmail.com" className="contact-value">
+                <a href="mailto:metriqwebsolutions@gmail.com" className="contact-value">
                   metricwebsolutions@gmail.com
                 </a>
               </div>
@@ -209,6 +214,26 @@ function Contact() {
                 required
               ></textarea>
             </div>
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                id="terms"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required 
+              />
+              <label htmlFor="terms" className="checkbox-label">
+                I agree to the{' '}
+                <a href="/TermsAndConditions" target="_blank" rel="noopener noreferrer">
+                  Terms & Conditions
+                </a>
+                {' '}and{' '}
+                <HashLink to="/PrivacyPolicy" target="_blank">
+                  Privacy Policy
+                </HashLink>
+                .
+              </label>
+            </div>
 
             <button type="submit" className="submit-button">
               <span>Send Message</span>
@@ -217,12 +242,12 @@ function Contact() {
           </form>
         </div>
         {toast && (
-        <Toast 
-          message={toast.message} 
-          type={toast.type} 
-          onClose={() => setToast(null)} 
-        />
-      )}
+          <Toast
+            message={toast.message}
+            type={toast.type}
+            onClose={() => setToast(null)}
+          />
+        )}
       </div>
     </section>
   );

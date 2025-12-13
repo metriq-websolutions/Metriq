@@ -16,7 +16,7 @@ function Works() {
       category: 'Portfolio',
       description:
         'A vibrant single-page portfolio site for a photo studio, built with smooth animations, a clean services showcase, product highlights, and an integrated contact form. Designed to feel modern, fast, and visually energetic.',
-      stack: ['React', 'Node.js', 'GSAP'],
+      stack: ['React', 'Node.js', 'GSAP','Git'],
       year: '2024',
     },
     {
@@ -24,7 +24,7 @@ function Works() {
       category: 'Full Stack / Portfolio',
       description:
         'A clean blue-and-white corporate website for a clean-air solutions company, featuring a structured hero section, detailed services, product showcases, an about segment, and a custom FastAPI-powered contact form. Built for clarity, speed, and a polished brand presence.',
-      stack: ['React', 'Node.js', 'Python', 'FastAPI', 'GSAP'],
+      stack: ['React', 'Node.js', 'Python', 'FastAPI', 'GSAP','Git'],
       year: '2024',
     },
     {

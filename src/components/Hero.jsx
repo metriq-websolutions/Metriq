@@ -11,7 +11,19 @@ function Hero() {
   const words = ["Full-Stack Developer", "Web Designer", "Freelancer"];
   const [index, setIndex] = useState(0);
 
-  // Text Rotation Logic
+  function supportsWebGL() {
+    try {
+      const canvas = document.createElement('canvas');
+      return !!(
+        window.WebGLRenderingContext &&
+        (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+      );
+    } catch {
+      return false;
+    }
+  }
+
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % words.length);
@@ -19,9 +31,8 @@ function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Three.js Logic
   useEffect(() => {
-    // Safety check: if canvas is null (during fast reloads), stop here
+    if (!supportsWebGL()) return;
     if (!canvasRef.current) return;
 
     const scene = new THREE.Scene();
@@ -31,7 +42,7 @@ function Hero() {
       0.1,
       1000
     );
-    
+
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
       alpha: true,
@@ -72,7 +83,7 @@ function Hero() {
     const animate = () => {
       // 2. Capture the ID
       animationFrameId = requestAnimationFrame(animate);
-      
+
       particlesMesh.rotation.y += 0.0005;
       particlesMesh.rotation.x += 0.0002;
       renderer.render(scene, camera);
@@ -93,38 +104,38 @@ function Hero() {
 
     // Check if elements exist before animating to prevent null errors
     if (titleRef.current) {
-        tl.fromTo(
+      tl.fromTo(
         titleRef.current.children,
         { opacity: 0, y: 100, rotationX: -90 },
         { opacity: 1, y: 0, rotationX: 0, duration: 1.2, stagger: 0.1, delay: 0.3 }
-        );
+      );
     }
 
     if (subtitleRef.current) {
-        tl.fromTo(
+      tl.fromTo(
         subtitleRef.current,
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1, ease: 'power3.out' },
         '-=0.6'
-        );
+      );
     }
-    
+
     if (ctaRef.current) {
-        tl.fromTo(
+      tl.fromTo(
         ctaRef.current,
         { opacity: 0, scale: 0.8 },
         { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' },
         '-=0.4'
-        );
+      );
     }
 
     // ✅ CLEANUP FUNCTION
     return () => {
       // 3. Stop the loop before destroying the renderer
       cancelAnimationFrame(animationFrameId);
-      
+
       window.removeEventListener('resize', handleResize);
-      
+
       // Dispose Three.js resources
       particlesGeometry.dispose();
       particlesMaterial.dispose();
@@ -135,12 +146,12 @@ function Hero() {
   // Text Change Animation
   useEffect(() => {
     if (titleRef.current) {
-        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-        tl.fromTo(
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+      tl.fromTo(
         titleRef.current.children,
         { opacity: 0 },
         { opacity: 1, duration: 1.2, stagger: 0.1 }
-        );
+      );
     }
   }, [index]);
 
@@ -155,13 +166,13 @@ function Hero() {
 
   return (
     <section id="hero" className="hero">
-      <canvas ref={canvasRef} className="hero-canvas"></canvas>
+     { supportsWebGL()? <canvas ref={canvasRef} className="hero-canvas"></canvas>:null}
       <div className="hero-content">
         <h1 ref={titleRef} className="hero-title">
           <span>{words[index]}</span>
         </h1>
         <p ref={subtitleRef} className="hero-subtitle">
-          Crafting AI-powered applications, real-time systems, and premium SaaS platforms
+          Crafting AI-powered applications, real-time systems, and premium portfolios
         </p>
         <button ref={ctaRef} className="hero-cta" onClick={scrollToContact}>
           <span className="cta-text">Let's Work Together</span>

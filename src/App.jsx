@@ -14,6 +14,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Packages from './components/Packages';
 import './App.css';
+import Terms from './components/Terms';
+import Privacy from './components/Privacy';
+import NotFound from './components/NotFound';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -55,6 +58,9 @@ function App() {
           
           {/* Packages Page Route (site.com/packages) */}
           <Route path="/packages" element={<Packages />} />
+          <Route path="/TermsAndConditions" element={<Terms />} />
+          <Route path="/PrivacyPolicy" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <Footer />

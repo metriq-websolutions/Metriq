@@ -24,36 +24,42 @@ function Packages() {
         'Basic SEO Setup',
         'Contact Form Integration',
         '1 Rounds of Revisions',
-        '1 Month Post-Launch Support'
+        '1 Month Post-Launch Support',
+        '3-5 Working Days'
       ],
       isPremium: false
     },
     {
       name: 'Essential',
-      price: 'Starting at ₹8000',
+      price: 'Starting at ₹10,000',
       description: 'Perfect for personal portfolios, landing pages, and small business identities.',
       features: [
-        'Single Page / 3-Page Site',
+        'Single Page / 5-Page Site',
         'Responsive Mobile Design',
         'Basic SEO Setup',
         'Contact Form Integration',
         '3 Rounds of Revisions',
-        '1 Month Post-Launch Support'
+        '1 Month Post-Launch Support',
+        '5-10 Working Days'
       ],
       isPremium: false
     },
     {
       name: 'Pro Scale',
-      price: 'Starting at ₹12,000',
+      price: 'Starting at ₹15,000',
       description: 'Full-stack solutions for startups and businesses needing dynamic functionality.',
       features: [
         'Full-Stack Web Application',
-        'Admin Dashboard & CMS',
-        'Database Integration (SQL/NoSQL)',
+        'Admin Dashboard',
+        'Multiple Pages',
+        'Multiple Revisions',
+        'Responsive Design',
+        'Basic SEO',
+        'Database Integration',
         'Authentication & User Profiles',
-        'Payment Gateway Setup',
         'Advanced Animation & Interactivity',
-        '3 Months Priority Support'
+        '3 Months Priority Support',
+        '3-4 Weeks'
       ],
       isPremium: true
     }

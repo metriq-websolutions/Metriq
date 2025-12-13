@@ -68,13 +68,13 @@ function Footer() {
           <div className="footer-section">
             <h3 className="footer-section-title">Contact</h3>
             <div className="footer-links">
-              <a href="mailto:hello@yourmail.com" className="footer-link">
-                jram6269@gmail.com
+              <a href="mailto:metriqwebsolutions@gmail.com" className="footer-link">
+                metriqwebsolutions@gmail.com
               </a>
               <a href="tel:8220094437" className="footer-link">
                 +91 8220094437
               </a>
-              <a href="tel:8220094437" className="footer-link">
+              <a href="tel:9342772002" className="footer-link">
                 +91 9342772002
               </a>
             </div>
@@ -84,7 +84,7 @@ function Footer() {
             <h3 className="footer-section-title">Social</h3>
             <div className="footer-links">
               <a
-                href="https://github.com"
+                href="https://github.com/metriq-websolutions"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-link"
@@ -92,7 +92,7 @@ function Footer() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/metriq-undefined-a08962393/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-link"
@@ -100,12 +100,12 @@ function Footer() {
                 LinkedIn
               </a>
               <a
-                href="https://twitter.com"
+                href="https://www.instagram.com/metriqwebsolutions/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-link"
               >
-                Twitter
+                Instagram
               </a>
             </div>
           </div>
@@ -122,18 +122,22 @@ function Footer() {
           <div className="footer-section">
             <h3 className="footer-section-title">Our Guidelines</h3>
             <div className="footer-links">
-              <a href="#" className="footer-link">
+              <HashLink to="/TermsAndConditions" className="footer-link">
                 Terms and Conditions
-              </a>
+              </HashLink>
+              <HashLink to="/PrivacyPolicy" className="footer-link">
+                Privacy Policy
+              </HashLink>
+
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {new Date().getFullYear()} All Rights Reserved
+            © {new Date().getFullYear()} All Rights Reserved for Metriq.
           </p>
-          <p className="footer-credit">Designed & Developed by Metriq</p>
+          <a href='https://www.jramportfolio.online' className="footer-credit">Designed & Developed by Metriq (Jayaram)</a>
         </div>
       </div>
 

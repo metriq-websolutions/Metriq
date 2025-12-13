@@ -1,0 +1,72 @@
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center;
+  padding: 2rem;
+}
+
+.not-found-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+}
+
+.error-code {
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin: 0;
+  color: #000000;
+}
+
+.error-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.error-desc {
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* Button Style (Matching your Packages button) */
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.home-btn:hover {
+  background: #333333;
+  padding-left: 1.5rem; /* Subtle slide effect */
+  padding-right: 2.5rem;
+}
+
+.home-btn .arrow {
+  transition: transform 0.3s ease;
+}
+
+.home-btn:hover .arrow {
+  transform: translateX(-5px);
+}
